@@ -17,7 +17,7 @@ Inspirado no ui-utils do CoderX. Funcionalidades implementadas:
 
 ---
 
-## Como usar (fluxo típico de exploit)
+## Como usar 
 
 1. Abra um baú / inventário no servidor.
 2. Pressione **O** para ativar o overlay.
@@ -27,55 +27,6 @@ Inspirado no ui-utils do CoderX. Funcionalidades implementadas:
 6. Clique **Close without packet** → o GUI fecha localmente, o servidor ainda o vê aberto.
 7. Pressione **V** a qualquer momento para reabrir o GUI salvo.
 8. Para enviar tudo de uma vez: reabra com V e desative o Delay (ou mantenha ativo e manipule à vontade).
-
----
-
-## Build
-
-### Pré-requisitos
-- **Java 8 (JDK)**
-- **Gradle** (ou use o wrapper)
-
-### Passos
-
-```bash
-# 1. Baixe o ForgeGradle e faça o setup
-./gradlew setupDecompWorkspace
-
-# 2. (Opcional) gere projeto para IntelliJ / Eclipse
-./gradlew genIntellijRuns
-# ou
-./gradlew eclipse
-
-# 3. Compile e gere o jar
-./gradlew build
-```
-
-O jar final estará em `build/libs/guiutils-1.0.0.jar`.
-
-### Instalação
-1. Instale **Minecraft Forge 1.8.9** (build `11.15.1.2318`).
-2. Coloque `guiutils-1.0.0.jar` na pasta `mods/`.
-3. Inicie o jogo.
-
----
-
-## Estrutura do projeto
-
-```
-src/main/java/com/guiutils/
-├── core/
-│   └── GUIUtilsMod.java          ← ponto de entrada do mod
-├── gui/
-│   ├── GUIUtilsOverlay.java      ← overlay com os botões e barra de comando
-│   └── SavedGUIManager.java      ← salva/restaura o GUI
-├── keybind/
-│   └── KeybindManager.java       ← teclas V (restaurar) e O (envolver GUI)
-├── mixin/
-│   └── MixinNetworkManager.java  ← intercepta NetworkManager#sendPacket
-└── network/
-    └── PacketManager.java        ← fila de pacotes, delay, flush, drop
-```
 
 ---
 
